@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calendar</title>
+		<!-- Add link tag to Bootstrap CSS	 -->
+		<!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+		<!--   Link to local CSS stylesheet   -->
+		<link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!--     This is the imported font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="/script.js"></script>
+  </head>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Ripple Plan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="https://Home-page.mandyzhao2.repl.co">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://copy-of-planner-copy.christianmaced3.repl.co/">Calender</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://reccomendation-page3.mandyzhao2.repl.co/">Reccomendations</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  
+  <body>
+
+    <div class="container">
+      <div class="calendar">
+        <div class="col leftCol">
+          <div class="content">
+  <!--           Change the date here to be today's date -->
+            <h1 class="date">{{weekday}}<span>{{month}} 
+  {{day}}</span></h1>
+  <!--           Might be able to replace with something from Bootstrap -->
+            <div class="notes">
+              <div id="myDIV" class="header">
+                <h2>My Events</h2>
+                <input type="text" id="myInput" placeholder="New Event: ">
+                <span onclick="newElement()" class="addBtn">Add</span>
+              </div>
+
+              <ul id="myUL">
+                <li>C. John Penaflor's Birthday</li>
+                <li>Shanini's Party</li>
+                <li>4th of July Family Gathering</li>
+                <li>W Culture Social Gathering</li>
+                <li>High School Grad Party</li>
+                <li>Trip to Kema</li>
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+  
+        <div class="col rightCol">
+          <div class="content">
+  <!--           Change year -->
+            <h2 class="year">{{year}}</h2>
+            <ul class="months">
+              <li><a href="#" title="Jan" data-value="1">Jan</a></li>
+              <li><a href="#" title="Feb" data-value="2">Feb</a></li>
+              <li><a href="#" title="Mar" data-value="3">Mar</a></li>
+              <li><a href="#" title="Apr" data-value="4">Apr</a></li>
+              <li><a href="#" title="May" data-value="5">May</a></li>
+              <li><a href="#" title="Jun" data-value="6">Jun</a></li>
+              <li><a href="#" title="Jul" data-value="7" class="selected">Jul</a></li>
+              <li><a href="#" title="Aug" data-value="8">Aug</a></li>
+              <li><a href="#" title="Sep" data-value="9" >Sep</a></li>
+              <li><a href="#" title="Oct" data-value="10">Oct</a></li>
+              <li><a href="#" title="Nov" data-value="11">Nov</a></li>
+              <li><a href="#" title="Dec" data-value="12">Dec</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <ul class="weekday">
+              <li><a href="#" title="Mon" data-value="1">Mon</a></li>
+              <li><a href="#" title="Tue" data-value="2">Tue</a></li>
+              <li><a href="#" title="Wed" data-value="3">Wed</a></li>
+              <li><a href="#" title="Thu" data-value="4">Thu</a></li>
+              <li><a href="#" title="Fri" data-value="5">Fri</a></li>
+              <li><a href="#" title="Sat" data-value="6">Sat</a></li>
+              <li><a href="#" title="Sun" data-value="7">Sun</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <ul class="days">
+              <li><a href="#" title="Sun" data-value="7"></a></li>
+              <li><a href="#" title="Sun" data-value="7"></a></li>
+              <li><a href="#" title="Sun" data-value="7"></a></li>
+              <li><a href="#" title="Sun" data-value="7"></a></li>
+              <script>
+                
+                for( var _i = 1; _i <= 31; _i += 1 ){
+                  var _addClass = '';
+                  var date = new Date().getDate();
+                  if( _i === date ){ _addClass = ' class="selected"'; }
+                  
+                  switch( _i ){
+                    case 4:
+                      _addClass = ' class="event"';
+                    break;
+                  }
+  
+                  document.write( '<li><a href="#" title="'+_i+'" data-value="'+_i+'"'+_addClass+'>'+_i+'</a></li>' );
+                }
+              </script>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+  
+        <div class="clearfix"></div>
+  
+      </div>
+    </div>
+    
+    
+	<!--   Add script tag for Bootstrap JS Bundle   -->
+		<!-- JavaScript Bundle with Popper -->
+    <script>
+      // Create a "close" button and append it to each list item
+      var myNodelist = document.getElementsByTagName("LI");
+      var i;
+      for (i = 0; i < 9; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        myNodelist[i].appendChild(span);
+      }
+      
+      // Click on a close button to hide the current list item
+      var close = document.getElementsByClassName("close");
+      var i;
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          var div = this.parentElement;
+          div.style.display = "none";
+        }
+      }
+      
+      // Add a "checked" symbol when clicking on a list item
+      var list = document.querySelector('ul');
+      list.addEventListener('click', function(ev) {
+        if (ev.target.tagName === 'LI') {
+          ev.target.classList.toggle('checked');
+        }
+      }, false);
+      
+      // Create a new item by clicking the Add button
+      function newElement() 
+      {
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("myInput").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if (inputValue === '') 
+        {
+          alert("You must write something!");
+        } else {
+          document.getElementById("myUL").appendChild(li);
+        }
+        document.getElementById("myInput").value = "";
+      
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+      
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

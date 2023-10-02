@@ -1,0 +1,355 @@
+/* not required */
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  background-color: #404040;
+  text-rendering: optimizeLegibility;
+  font-size: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+input{
+  font-family: 'Raleway', sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, p{
+  margin-bottom: 20px;
+}
+
+p{
+  line-height: 20px;
+}
+
+a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* .clearfix{
+  clear: both;
+} */
+
+.container {
+  width:120%;
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar{
+  width:85%;
+  height:80vh;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #545454;
+  color: #333333;
+  box-shadow: 8px 8px rgba(0,0,0,0.2);
+}
+
+.calendar h1, .calendar h2{
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 27px;
+  text-transform: uppercase;
+  margin: 0px 0px 20px 0px;
+}
+
+.calendar h1 span{
+  display: block;
+}
+
+.calendar .col{
+  position: relative;
+  float: left;
+  height: 100%;
+
+}
+
+.calendar .col {
+  padding: 20px;
+}
+
+
+.content {
+  padding: 5px;
+}
+
+.calendar ul{
+  margin: 0px;
+}
+
+.calendar ul li{
+  list-style: none;
+}
+
+.calendar .leftCol{
+  width: 2rem;
+  background-color: #147d8a;
+  border-radius: 7px 0 0 7px;
+}
+
+.calendar .noteList li{
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.calendar .notes p,
+.calendar .notes input,
+.calendar .noteList li{
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.calendar .notes p{
+  border-bottom: solid 1px rgba(255,255,255,0.4);
+}
+
+.calendar .notes input{
+  background-color: #147d8a;
+  color: #ffffff;
+  border: none;
+  width: 200px;
+}
+
+.calendar .addNote,
+.calendar .removeNote{
+  float: right;
+  color: rgba(255,255,255,0.4);
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.calendar .addNote:hover,
+.calendar .removeNote:hover{
+  color: #ffffff;
+}
+
+.calendar .addNote{
+  font-size: 16px;
+}
+
+.calendar .leftCol h1{
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.calendar .rightCol{
+  width: 60%;
+}
+
+.calendar .rightCol h2{
+  color: #C7BEBE;
+  text-align: right;
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar .months li,
+.calendar .weekday li,
+.calendar .days li{
+  float: left;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar .months li a,
+.calendar .weekday li a,
+.calendar .days li a{
+  display: block;
+  color: #ffffff;
+}
+
+.calendar .months li a{
+  font-size: 16px;
+  color: #e6e6e6;
+  text-align: center;
+  width: 70px;
+  margin-bottom: 5px;
+  text-shadow:0 .3rem 0.5rem rgba(0,0,0,0,5):
+}
+
+.calendar .months li .selected{
+  font-weight: bold;
+  color: #147d8a;
+}
+
+.calendar .weekday li a{
+  width: 60px;
+  height: 60px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+  text-shadow:0 .3rem 0.5rem rgba(0,0,0,0,5);
+}
+
+.calendar .days li{
+  margin: 0px;
+  width: 60px;
+}
+
+.calendar .days li a{
+  width: 40px;
+  height: 70px;
+  text-align: center;
+  margin: auto auto;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+
+.calendar .days li a:hover{
+  background-color: #EEEDE9;
+}
+
+.calendar .days li .selected{
+  background-color: #147d8a!important;
+  color: #ffffff;
+}
+
+.calendar .days li .event{
+  color: #4bb5c3;
+}
+
+
+/* placeholder color */
+::-webkit-input-placeholder {color: #ffffff; }
+:-moz-placeholder {color: #ffffff; }
+::-moz-placeholder {color: #ffffff; }
+:-ms-input-placeholder {color: #ffffff; }
+
+
+
+
+/* Style the list items */
+
+.notes ul {
+  margin: 0px;
+  padding: 50px 0;
+  width:75%;
+}
+
+.notes ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  border-radius: 0px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+.notes ul li:nth-child(odd) {
+  background: #bfbfbf;
+}
+
+/* Darker background-color on hover */
+.notes ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+.notes ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+.notes ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.notes h2 {
+  margin: 0px;
+  padding: 30px 0;
+  font-size: 40px;
+  font-weight: 600;
+  text-transform:uppercase;
+  letter-spacing: 0.1px;
+  margin-bottom:1rem;
+}
+
+/* Style the close button */
+.notes .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.header {
+  padding: 30px 0px;
+  color: white;
+  text-align: left;
+}
+
+/* Style the input */
+.notes input {
+  margin: 0px;
+  border: 2px solid #d3caca;
+  border-radius: 7px;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 50px;
+}
+
+/* Style the "Add" button */
+.notes .addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #918d8d;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 7px;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
